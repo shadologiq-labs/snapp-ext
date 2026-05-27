@@ -1,0 +1,34 @@
+# Build output
+build/
+dist/
+*.zip
+
+# Test/tooling output
+coverage/
+.vitest-cache/
+
+# Node
+node_modules/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+
+# Environment & Secrets
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.p12
+*.pfx
+
+# AI tooling / internal artifacts
+.claude/
+!.claude/settings.json
+!.claude/agents/
+!.claude/commands/
+CLAUDE.md

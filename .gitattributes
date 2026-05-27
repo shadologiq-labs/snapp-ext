@@ -1,0 +1,22 @@
+# Default: treat as text, normalize to LF in the repo, native EOL in working tree
+* text=auto eol=lf
+
+# Windows-native scripts: keep CRLF in the working tree
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binaries: no conversion
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary

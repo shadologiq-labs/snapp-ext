@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "SNapp",
+  "version": "0.9.2",
+  "description": "Right-click any ServiceNow record to instantly copy rich formatted links or inject standard change templates.",
+  "homepage_url": "https://snapp-ext.shadologiq.com/",
+  "permissions": ["contextMenus", "scripting", "storage"],
+  "host_permissions": ["*://*.service-now.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.service-now.com/*"],
+      "js": ["linker-content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "options_page": "options.html",
+  "action": {
+    "default_title": "SNapp"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
