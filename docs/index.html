@@ -83,12 +83,27 @@
     outline: none;
   }
 
-  html, body {
+  /* App-shell: non-scrolling flex column; header + footer pinned, a single
+     .content-well between them is the only scroll region. Matches the catalog,
+     home, and gapps-embed so the chrome stays put as content scrolls under it. */
+  html, body { height: 100%; }
+  body {
     background: var(--navy-deep);
     color: var(--ink);
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .content-well {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-padding-top: 16px;
   }
 
   a { color: var(--teal-bright); text-decoration: none; }
@@ -103,6 +118,7 @@
     display: flex;
     align-items: center;
     gap: 14px;
+    flex-shrink: 0;
   }
 
   header .brand-chip {
@@ -487,6 +503,7 @@
     color: var(--ink-mute);
     flex-wrap: wrap;
     justify-content: center;
+    flex-shrink: 0;
   }
 
   footer p { margin: 0; }
@@ -546,6 +563,9 @@
     <a href="https://github.com/shadologiq-labs">GitHub</a>
   </nav>
 </header>
+
+<!-- Content well: the single scroll region (app-shell) -->
+<div class="content-well" id="content-well">
 
 <section class="hero" id="main">
   <div class="status-row">
@@ -618,6 +638,8 @@
   <p>While SNapp's getting ready, the rest of the lab is open — Gapps Embed is live, and more tools are queued up.</p>
   <a href="https://shadologiq.com/" class="btn-primary">Explore ShadoLogiq Labs</a>
 </section>
+
+</div><!-- /.content-well -->
 
 <footer>
   <p class="footer-org">ShadoLogiq Labs · 2026 · Free, libre, local</p>
