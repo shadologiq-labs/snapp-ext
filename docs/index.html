@@ -171,9 +171,16 @@
   header nav a {
     color: var(--ink-mute);
     transition: color 0.15s;
+    padding: 2px 0;
   }
 
   header nav a:hover { color: var(--ink); text-decoration: none; }
+
+  header nav a.is-active {
+    color: var(--teal-bright);
+    font-weight: 600;
+    border-bottom: 2px solid var(--teal-bright);
+  }
 
   /* ── Hero ── */
   .hero {
@@ -466,44 +473,34 @@
     margin: 0 auto 28px;
   }
 
-  /* ── Footer ── */
+  /* ── Footer ── canonical single-line strip, consistent across all
+     ShadoLogiq Labs surfaces. */
   footer {
-    background: var(--navy-deep);
+    background: var(--navy);
     border-top: 1px solid var(--line);
-    padding: 40px 32px 32px;
-    text-align: center;
-  }
-
-  .footer-tagline {
-    font-size: 13px;
-    color: var(--ink-mute);
-    margin-bottom: 4px;
-  }
-
-  .footer-repo {
-    font-size: 12px;
-    font-family: 'Menlo', 'Consolas', monospace;
-  }
-
-  .footer-repo a {
-    color: var(--ink-mute);
-    transition: color 0.15s;
-  }
-
-  .footer-repo a:hover {
-    color: var(--teal-bright);
-    text-decoration: none;
-  }
-
-  .footer-stats {
+    padding: 10px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
     font-family: 'Menlo', 'Consolas', monospace;
     font-size: 11px;
     color: var(--ink-mute);
-    margin-top: 16px;
-    opacity: 0.7;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  footer p { margin: 0; }
+  .footer-org { color: var(--ink-mute); }
+
+  .footer-links { display: flex; gap: 10px; align-items: center; }
+  .footer-links a { color: var(--ink-mute); transition: color 0.15s; }
+  .footer-links a:hover { color: var(--teal-bright); text-decoration: none; }
+
+  .footer-stats {
     display: flex;
     gap: 10px;
-    justify-content: center;
+    opacity: 0.7;
+    align-items: center;
     flex-wrap: wrap;
   }
 
@@ -542,12 +539,11 @@
   <span class="crumb-sep">/</span>
   <h1>SNapp Extension</h1>
   <span class="ver">Coming soon</span>
-  <nav>
+  <nav aria-label="Primary">
     <a href="https://shadologiq.com/">Home</a>
-    <a href="https://shadologiq.com/#stance">Stance</a>
-    <a href="https://shadologiq.com/#catalogs">Catalogs</a>
-    <a href="https://shadologiq.com/#projects">Projects</a>
-    <a href="https://github.com/shadologiq-labs/snapp-ext">GitHub</a>
+    <a href="https://tools.shadologiq.com/">Catalog</a>
+    <a href="https://shadologiq.com/projects/" class="is-active" aria-current="page">Projects</a>
+    <a href="https://github.com/shadologiq-labs">GitHub</a>
   </nav>
 </header>
 
@@ -624,8 +620,14 @@
 </section>
 
 <footer>
-  <p class="footer-tagline">MIT-licensed · Free, libre, and local</p>
-  <p class="footer-repo"><a href="https://github.com/shadologiq-labs">github.com/shadologiq-labs</a></p>
+  <p class="footer-org">ShadoLogiq Labs · 2026 · Free, libre, local</p>
+  <p class="footer-links">
+    <a href="https://shadologiq.com/privacy/">Privacy</a>
+    <span class="stat-sep">·</span>
+    <a href="https://github.com/shadologiq-labs">Contact</a>
+    <span class="stat-sep">·</span>
+    <a href="https://github.com/shadologiq-labs/snapp-ext">Source</a>
+  </p>
   <p class="footer-stats" aria-live="polite">
     <span class="stat" id="stat-weight">— KB</span>
     <span class="stat-sep">·</span>
